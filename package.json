@@ -1,0 +1,24 @@
+{
+  "name": "stayshine-html",
+  "version": "1.5.0",
+  "description": "This is the original Stayshine Web Development site with a new work environment. I plan to update the site now and again in order to keep up the site and eventually redo the entire look and feel of its design.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stayshine/stayshine-web.git"
+  },
+  "keywords": [
+    "html5",
+    "website",
+    "responsive"
+  ],
+  "author": "Michael Rosata",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stayshine/stayshine-web/issues"
+  },
+  "homepage": "https://github.com/stayshine/stayshine-web#readme"
+}
