@@ -15,14 +15,8 @@
     #formWrapper form input:focus, #formWrapper form select:focus, #formWrapper form textarea:focus {
       border: 2px solid #4848ad;
       -webkit-transition: all 1s;
-      -moz-transition: all 1s;
-      -ms-transition: all 1s;
-      -o-transition: all 1s;
       transition: all 1s;
       -webkit-transform: rotate(0.2deg) scale(1.08);
-      -moz-transform: rotate(0.2deg) scale(1.08);
-      -ms-transform: rotate(0.2deg) scale(1.08);
-      -o-transform: rotate(0.2deg) scale(1.08);
       transform: rotate(0.2deg) scale(1.08); }
     #formWrapper form textarea {
       min-width: 260px;
@@ -46,7 +40,7 @@
     margin: 0 4px;
     padding: 6px; }
     #formWrapper form input, #formWrapper form select, #formWrapper form textarea {
-      font-size: 0.9em;
+      font-size: .9em;
       margin-left: 12%; }
     #formWrapper form textarea {
       width: 80%; }
@@ -60,8 +54,6 @@
       margin: 0 30% 8px; } }
 
 /* Small devices (tablets, 768px and up) */
-@media (min-width: 768px) { }
-
 /*END OF TABLETS AND UP*/
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
@@ -75,7 +67,4 @@
   #formWrapper form input, #formWrapper form select {
     width: 420px; } }
 
-@media (min-width: 1200px) { }
-
 /*END OF LARGE DEVICES*/
-/*# sourceMappingURL=customForm.css.map */

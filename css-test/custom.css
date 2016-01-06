@@ -68,6 +68,7 @@ dfn {
   font-style: italic; }
 
 hr {
+  -moz-box-sizing: content-box;
   box-sizing: content-box;
   height: 0; }
 
@@ -175,6 +176,8 @@ input[type="checkbox"], input[type="radio"] {
 
 input[type="search"] {
   -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
   box-sizing: content-box; }
 
 input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration {
@@ -411,7 +414,9 @@ body:before {
 * {
   margin: 0;
   padding: 0;
+  -webkit-box-sizing: border-box;
   /* Saf <5.1, */
+  -moz-box-sizing: border-box;
   /* Fx */
   box-sizing: border-box;
   /* Ch, Saf 5.1+, IE 8+, Op 9+  */ }
@@ -467,12 +472,18 @@ body:before {
         background-color: #e8e6e6;
         cursor: pointer;
         -webkit-transform: rotate(0) scale(1) translate(0px);
+        -moz-transform: rotate(0) scale(1) translate(0px);
+        -ms-transform: rotate(0) scale(1) translate(0px);
+        -o-transform: rotate(0) scale(1) translate(0px);
         transform: rotate(0) scale(1) translate(0px);
         -webkit-transition: all 0.3s;
         transition: all 0.3s; }
         .carrosel #controls #buttonBox #prevFrameBtn:hover, .carrosel #controls #buttonBox #nextFrameBtn:hover, .carrosel #controls #buttonBox #pauseFrameBtn:hover {
           background-color: #d46a6a;
           -webkit-transform: rotate(0) scale(1.06) translate(0px);
+          -moz-transform: rotate(0) scale(1.06) translate(0px);
+          -ms-transform: rotate(0) scale(1.06) translate(0px);
+          -o-transform: rotate(0) scale(1.06) translate(0px);
           transform: rotate(0) scale(1.06) translate(0px);
           -webkit-transition: all 0.3s;
           transition: all 0.3s; }
@@ -490,16 +501,25 @@ body:before {
         top: 0.6em;
         left: 0.3em;
         -webkit-transform: rotate(45deg) scale(1) translate(0px);
+        -moz-transform: rotate(45deg) scale(1) translate(0px);
+        -ms-transform: rotate(45deg) scale(1) translate(0px);
+        -o-transform: rotate(45deg) scale(1) translate(0px);
         transform: rotate(45deg) scale(1) translate(0px); }
         .carrosel #controls #buttonBox #prevFrameBtn .carr-arrow.right-arrow {
           left: 0.8em; }
       .carrosel #controls #buttonBox #prevFrameBtn:hover {
         border-color: #1e1b1b;
         -webkit-transform: rotate(0) scale(1.06) translate(0px);
+        -moz-transform: rotate(0) scale(1.06) translate(0px);
+        -ms-transform: rotate(0) scale(1.06) translate(0px);
+        -o-transform: rotate(0) scale(1.06) translate(0px);
         transform: rotate(0) scale(1.06) translate(0px); }
         .carrosel #controls #buttonBox #prevFrameBtn:hover .carr-arrow {
           border-color: #1e1b1b;
           -webkit-transform: rotate(45deg) scale(1.06) translate(0px);
+          -moz-transform: rotate(45deg) scale(1.06) translate(0px);
+          -ms-transform: rotate(45deg) scale(1.06) translate(0px);
+          -o-transform: rotate(45deg) scale(1.06) translate(0px);
           transform: rotate(45deg) scale(1.06) translate(0px); }
       .carrosel #controls #buttonBox #pauseFrameBtn {
         width: 2em;
@@ -519,6 +539,9 @@ body:before {
         .carrosel #controls #buttonBox #pauseFrameBtn:hover .carr-bar {
           background-color: #1e1b1b;
           -webkit-transform: rotate(0deg) scale(1.06) translate(0px);
+          -moz-transform: rotate(0deg) scale(1.06) translate(0px);
+          -ms-transform: rotate(0deg) scale(1.06) translate(0px);
+          -o-transform: rotate(0deg) scale(1.06) translate(0px);
           transform: rotate(0deg) scale(1.06) translate(0px); }
       .carrosel #controls #buttonBox #nextFrameBtn {
         top: 0;
@@ -532,16 +555,25 @@ body:before {
           top: 0.6em;
           left: 0.3em;
           -webkit-transform: rotate(45deg) scale(1) translate(0px);
+          -moz-transform: rotate(45deg) scale(1) translate(0px);
+          -ms-transform: rotate(45deg) scale(1) translate(0px);
+          -o-transform: rotate(45deg) scale(1) translate(0px);
           transform: rotate(45deg) scale(1) translate(0px); }
           .carrosel #controls #buttonBox #nextFrameBtn .carr-arrow.right-arrow {
             left: 0.8em; }
         .carrosel #controls #buttonBox #nextFrameBtn:hover {
           border-color: #1e1b1b;
           -webkit-transform: rotate(0deg) scale(1.06) translateX(0px);
+          -moz-transform: rotate(0deg) scale(1.06) translateX(0px);
+          -ms-transform: rotate(0deg) scale(1.06) translateX(0px);
+          -o-transform: rotate(0deg) scale(1.06) translateX(0px);
           transform: rotate(0deg) scale(1.06) translateX(0px); }
           .carrosel #controls #buttonBox #nextFrameBtn:hover .carr-arrow {
             border-color: #1e1b1b;
             -webkit-transform: rotate(45deg) scale(1.06) translateX(0px);
+            -moz-transform: rotate(45deg) scale(1.06) translateX(0px);
+            -ms-transform: rotate(45deg) scale(1.06) translateX(0px);
+            -o-transform: rotate(45deg) scale(1.06) translateX(0px);
             transform: rotate(45deg) scale(1.06) translateX(0px); }
   .carrosel figure {
     display: block;
@@ -704,6 +736,9 @@ body:before {
 html {
   background-color: #fffff3;
   background: url(../img/stayshine-main-background.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
   filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/stayshine-main-background.jpg', sizingMethod='scale');
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/stayshine-main-background.jpg', sizingMethod='scale')";
@@ -714,18 +749,27 @@ html {
 
 html.webdesign {
   background: url(../img/stayshine-services-background.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
   filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/stayshine-services-background.jpg', sizingMethod='scale');
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/stayshine-services-background.jpg', sizingMethod='scale')"; }
 
 html.blog {
   background: url(../img/stayshine-blog-background.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
   filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/stayshine-blog-background.jpg', sizingMethod='scale');
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/stayshine-blog-background.jpg', sizingMethod='scale')"; }
 
 html.contact {
   background: url(../img/stayshine-contact-background.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
   filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/stayshine-contact-background.jpg', sizingMethod='scale');
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/stayshine-contact-background.jpg', sizingMethod='scale')"; }
@@ -947,10 +991,11 @@ img.stayshine-no-stretch {
     margin-top: 1.8em;
     background-color: #fff;
     background-image: -webkit-linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px), -webkit-linear-gradient(#eee 0.1em, transparent 0.1em);
+    background-image: -moz-linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px), -moz-linear-gradient(#eee 0.1em, transparent 0.1em);
+    background-image: -o-linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px), -o-linear-gradient(#eee 0.1em, transparent 0.1em);
     background-image: -ms-linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px), -ms-linear-gradient(#eee 0.1em, transparent 0.1em);
     -webkit-background-size: 100% 1.2em;
     -moz-background-size: 100% 1.2em;
-    background-image: -webkit-linear-gradient(left, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px), -webkit-linear-gradient(#eee 0.1em, transparent 0.1em);
     background-image: linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px), linear-gradient(#eee 0.1em, transparent 0.1em);
     background-size: 100% 1.2em; }
     #stayshine-content .notebook h4 {
@@ -980,9 +1025,15 @@ img.stayshine-no-stretch {
     border: 1px solid #16becf; }
     #stayshine-content .stayshine-recent-work.stayshine-grow {
       -webkit-transition: all 0.4s ease-out;
+      -moz-transition: all 0.4s ease-out;
+      -ms-transition: all 0.4s ease-out;
+      -o-transition: all 0.4s ease-out;
       transition: all 0.4s ease-out; }
       #stayshine-content .stayshine-recent-work.stayshine-grow:hover {
         -webkit-transform: scale(1.01);
+        -moz-transform: scale(1.01);
+        -ms-transform: scale(1.01);
+        -o-transform: scale(1.01);
         transform: scale(1.01); }
   #stayshine-content ul.stayshine-web-services-list {
     list-style: none;
@@ -996,21 +1047,36 @@ img.stayshine-no-stretch {
         color: #282893;
         display: block;
         -webkit-transition: 0.42s all;
+        -moz-transition: 0.42s all;
+        -ms-transition: 0.42s all;
+        -o-transition: 0.42s all;
         transition: 0.42s all; }
       #stayshine-content ul.stayshine-web-services-list a:visited {
         color: #282893;
         -webkit-transition: 0.42s all;
+        -moz-transition: 0.42s all;
+        -ms-transition: 0.42s all;
+        -o-transition: 0.42s all;
         transition: 0.42s all; }
       #stayshine-content ul.stayshine-web-services-list a:hover {
         -webkit-transition: 0.42s all;
+        -moz-transition: 0.42s all;
+        -ms-transition: 0.42s all;
+        -o-transition: 0.42s all;
         transition: 0.42s all;
         -webkit-transform: scale(1.01);
+        -moz-transform: scale(1.01);
+        -ms-transform: scale(1.01);
+        -o-transform: scale(1.01);
         transform: scale(1.01);
         color: #6f0d14;
         background-color: rgba(186, 67, 67, 0.29); }
       #stayshine-content ul.stayshine-web-services-list a:active {
         color: #282893;
         -webkit-transition: 0.42s all;
+        -moz-transition: 0.42s all;
+        -ms-transition: 0.42s all;
+        -o-transition: 0.42s all;
         transition: 0.42s all; }
   #stayshine-content #stayshine-blog-ui .stayshine-byline {
     text-align: center;
@@ -1035,11 +1101,21 @@ img.stayshine-no-stretch {
   margin: 12px; }
   .stayshine-image-shaped.animated {
     -webkit-transition: 1.8s all;
+    -moz-transition: 1.8s all;
+    -ms-transition: 1.8s all;
+    -o-transition: 1.8s all;
     transition: 1.8s all;
+    -webkit-box-shadow: 115px 115px 26px -98px rgba(34, 34, 34, 0.28), -92px -114px 50px -130px rgba(255, 0, 0, 0.19), -110px 100px 25px -60px rgba(24, 103, 1, 0.15), 129px -108px 20px -98px rgba(58, 0, 255, 0.16), 8px 8px 1px 1px #222, -12px 14px 2px 0px rgba(83, 53, 53, 0.56);
+    -moz-box-shadow: 115px 115px 26px -98px rgba(34, 34, 34, 0.28), -92px -114px 50px -130px rgba(255, 0, 0, 0.19), -110px 100px 25px -60px rgba(24, 103, 1, 0.15), 129px -108px 20px -98px rgba(58, 0, 255, 0.16), 8px 8px 1px 1px #222, -12px 14px 2px 0px rgba(83, 53, 53, 0.56);
     box-shadow: 115px 115px 26px -98px rgba(34, 34, 34, 0.28), -92px -114px 50px -130px rgba(255, 0, 0, 0.19), -110px 100px 25px -60px rgba(24, 103, 1, 0.15), 129px -108px 20px -98px rgba(58, 0, 255, 0.16), 8px 8px 1px 1px #222, -12px 14px 2px 0px rgba(83, 53, 53, 0.56); }
     .stayshine-image-shaped.animated:hover {
       -webkit-transition: 1.8s all;
+      -moz-transition: 1.8s all;
+      -ms-transition: 1.8s all;
+      -o-transition: 1.8s all;
       transition: 1.8s all;
+      -webkit-box-shadow: 222px -149px 12px -108px rgba(34, 34, 34, 0.26), -123px 122px 5px -100px rgba(211, 78, 78, 0.67), 49px -20px 5px 10px rgba(24, 103, 1, 0.63), 145px -110px 18px -90px rgba(156, 16, 229, 0.53), 0px -50px 122px 180px rgba(253, 128, 0, 0.36), -176px 157px 42px -124px #f7ff00;
+      -moz-box-shadow: 222px -149px 12px -108px rgba(34, 34, 34, 0.26), -123px 122px 5px -100px rgba(211, 78, 78, 0.67), 49px -20px 5px 10px rgba(24, 103, 1, 0.63), 145px -110px 18px -90px rgba(156, 16, 229, 0.53), 0px -50px 122px 180px rgba(253, 128, 0, 0.36), -176px 157px 42px -124px #f7ff00;
       box-shadow: 222px -149px 12px -108px rgba(34, 34, 34, 0.26), -123px 122px 5px -100px rgba(211, 78, 78, 0.67), 49px -20px 5px 10px rgba(24, 103, 1, 0.63), 145px -110px 18px -90px rgba(156, 16, 229, 0.53), 0px -50px 122px 180px rgba(253, 128, 0, 0.36), -176px 157px 42px -124px #f7ff00; }
 
 .stayshine-center {
@@ -1057,19 +1133,24 @@ img.stayshine-no-stretch {
   background-color: #76b8bc;
   background: #588fcb;
   /* Old browsers */
+  background: -moz-linear-gradient(-45deg, #588fcb 1%, #3e97e0 25%, #004988 73%, #00447e 100%);
   /* FF3.6+ */
   background: -webkit-gradient(linear, left top, right bottom, color-stop(1%, #588fcb), color-stop(25%, #3e97e0), color-stop(73%, #004988), color-stop(100%, #367d82));
   /* Chrome,Safari4+ */
   background: -webkit-linear-gradient(-45deg, #588fcb 1%, #3e97e0 25%, #004988 73%, #00447e 100%);
   /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(-45deg, #588fcb 1%, #3e97e0 25%, #004988 73%, #00447e 100%);
   /* Opera 11.10+ */
+  background: -ms-linear-gradient(-45deg, #588fcb 1%, #3e97e0 25%, #004988 73%, #00447e 100%);
   /* IE10+ */
-  background: -webkit-linear-gradient(315deg, #588fcb 1%, #3e97e0 25%, #004988 73%, #00447e 100%);
   background: linear-gradient(135deg, #588fcb 1%, #3e97e0 25%, #004988 73%, #00447e 100%);
   /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#588fcb', endColorstr='#00447e',GradientType=1 );
   /* IE6-9 fallback on horizontal gradient */
   -webkit-transition: all 0.1s;
+  -moz-transition: all 0.1s;
+  -ms-transition: all 0.1s;
+  -o-transition: all 0.1s;
   transition: all 0.1s;
   width: 110px;
   border: 1px inset #483030;
@@ -1088,22 +1169,29 @@ img.stayshine-no-stretch {
     border-top-style: inset;
     border-radius: 6px/12px;
     -webkit-transition: all 0.14s;
+    -moz-transition: all 0.14s;
+    -ms-transition: all 0.14s;
+    -o-transition: all 0.14s;
     transition: all 0.14s;
     background: #7fa9d7;
     /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #7fa9d7 1%, #3e97e0 25%, #18507f 73%, #1346a5 100%);
     /* FF3.6+ */
     background: -webkit-gradient(linear, left top, right bottom, color-stop(1%, #7fa9d7), color-stop(25%, #3e97e0), color-stop(73%, #18507f), color-stop(100%, #367d82));
     /* Chrome,Safari4+ */
     background: -webkit-linear-gradient(-45deg, #7fa9d7 1%, #3e97e0 25%, #18507f 73%, #1346a5 100%);
     /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(-45deg, #7fa9d7 1%, #3e97e0 25%, #18507f 73%, #1346a5 100%);
     /* Opera 11.10+ */
+    background: -ms-linear-gradient(-45deg, #7fa9d7 1%, #3e97e0 25%, #18507f 73%, #1346a5 100%);
     /* IE10+ */
-    background: -webkit-linear-gradient(315deg, #7fa9d7 1%, #3e97e0 25%, #18507f 73%, #1346a5 100%);
     background: linear-gradient(135deg, #7fa9d7 1%, #3e97e0 25%, #18507f 73%, #1346a5 100%);
     /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7fa9d7', endColorstr='#1346a5',GradientType=1 );
     /* IE6-9 fallback on horizontal gradient */
+    -webkit-box-shadow: 1px 0px 2px 1px #afadad;
     box-shadow: 1px 0px 2px 1px #afadad;
+    -webkit-box-shadow: 1px 0px 2px 1px rgba(150, 150, 150, 0.73);
     box-shadow: 1px 0px 2px 1px rgba(150, 150, 150, 0.73);
     text-shadow: 0px 0px 1px rgba(51, 51, 51, 0.5), 0px 1px 1px rgba(51, 51, 51, 0.5), 0px -1px 1px rgba(51, 51, 51, 0.5), 1px -1px 0px rgba(51, 51, 51, 0.5), -1px 1px 0px rgba(51, 51, 51, 0.5), 0px -1px 6px rgba(139, 26, 26, 0.4); }
 
@@ -1244,10 +1332,11 @@ img.stayshine-no-stretch {
       #stayshine-content #blog-nav p {
         background-color: #fff;
         background-image: -webkit-linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px), -webkit-linear-gradient(#eee 0.1em, transparent 0.1em);
+        background-image: -moz-linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px), -moz-linear-gradient(#eee 0.1em, transparent 0.1em);
+        background-image: -o-linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px), -o-linear-gradient(#eee 0.1em, transparent 0.1em);
         background-image: -ms-linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px), -ms-linear-gradient(#eee 0.1em, transparent 0.1em);
         -webkit-background-size: 100% 1em;
         -moz-background-size: 100% 1em;
-        background-image: -webkit-linear-gradient(left, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px), -webkit-linear-gradient(#eee 0.1em, transparent 0.1em);
         background-image: linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px), linear-gradient(#eee 0.1em, transparent 0.1em);
         background-size: 100% 1em;
         padding-top: 1.14em;
@@ -1267,6 +1356,9 @@ img.stayshine-no-stretch {
       padding: 0;
       border-bottom: 1px solid white;
       -webkit-transition: all 0.2s ease-in-out;
+      -moz-transition: all 0.2s ease-in-out;
+      -ms-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out;
       transition: all 0.2s ease-in-out; }
       .stayshine-nav ul li a {
         display: block;
@@ -1274,18 +1366,26 @@ img.stayshine-no-stretch {
         height: 100%;
         padding: 2px;
         -webkit-transition: all 0.2s ease-in-out;
+        -moz-transition: all 0.2s ease-in-out;
+        -ms-transition: all 0.2s ease-in-out;
+        -o-transition: all 0.2s ease-in-out;
         transition: all 0.2s ease-in-out; }
         .stayshine-nav ul li a:hover {
           color: #a31212;
           color: rgba(113, 9, 9, 0.85);
           background-color: #61679a;
+          background: -moz-linear-gradient(-45deg, rgba(255, 188, 0, 0.16) 8%, rgba(224, 72, 14, 0.16) 36%, rgba(252, 18, 18, 0.16) 64%, rgba(0, 0, 255, 0.16) 92%);
           background: -webkit-gradient(linear, left top, right bottom, color-stop(8%, rgba(255, 188, 0, 0.16), color-stop(36%, rgba(224, 72, 14, 0.16)), color-stop(64%, rgba(252, 18, 18, 0.16)), color-stop(92%, rgba(0, 0, 255, 0.16))));
           background: -webkit-linear-gradient(-45deg, rgba(255, 188, 0, 0.16) 8%, rgba(224, 72, 14, 0.16) 36%, rgba(252, 18, 18, 0.16) 64%, rgba(0, 0, 255, 0.16) 92%);
-          background: -webkit-linear-gradient(315deg, rgba(255, 188, 0, 0.16) 8%, rgba(224, 72, 14, 0.16) 36%, rgba(252, 18, 18, 0.16) 64%, rgba(0, 0, 255, 0.16) 92%);
+          background: -o-linear-gradient(-45deg, rgba(255, 188, 0, 0.16) 8%, rgba(224, 72, 14, 0.16) 36%, rgba(252, 18, 18, 0.16) 64%, rgba(0, 0, 255, 0.16) 92%);
+          background: -ms-linear-gradient(-45deg, rgba(255, 188, 0, 0.16) 8%, rgba(224, 72, 14, 0.16) 36%, rgba(252, 18, 18, 0.16) 64%, rgba(0, 0, 255, 0.16) 92%);
           background: linear-gradient(135deg, rgba(255, 188, 0, 0.16) 8%, rgba(224, 72, 14, 0.16) 36%, rgba(252, 18, 18, 0.16) 64%, rgba(0, 0, 255, 0.16) 92%);
           filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#26ffbcff', endColorstr='#290c72ff',GradientType=1 );
           background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICA8c3RvcCBvZmZzZXQ9IjIlIiBzdG9wLWNvbG9yPSIjZmZiYzAwIiBzdG9wLW9wYWNpdHk9IjAuMTUiLz4KICAgIDxzdG9wIG9mZnNldD0iMzYlIiBzdG9wLWNvbG9yPSIjZTA0ODBlIiBzdG9wLW9wYWNpdHk9IjAuMTUiLz4KICAgIDxzdG9wIG9mZnNldD0iNjQlIiBzdG9wLWNvbG9yPSIjZmMxMjEyIiBzdG9wLW9wYWNpdHk9IjAuMTYiLz4KICAgIDxzdG9wIG9mZnNldD0iOTIlIiBzdG9wLWNvbG9yPSIjMGM3MmZmIiBzdG9wLW9wYWNpdHk9IjAuMTYiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
           -webkit-transition: all 0.3s ease-in-out;
+          -moz-transition: all 0.3s ease-in-out;
+          -ms-transition: all 0.3s ease-in-out;
+          -o-transition: all 0.3s ease-in-out;
           transition: all 0.3s ease-in-out; }
           .stayshine-nav ul li a:hover.index {
             text-shadow: -60px 0px 0px #333, 61px 1px 1px #333, -60px 1px 1px #333, 61px 0px 0px #333; }
@@ -1496,8 +1596,14 @@ body#error-404 {
     #formWrapper form input:focus, #formWrapper form select:focus, #formWrapper form textarea:focus {
       border: 2px solid #4848ad;
       -webkit-transition: all 1s;
+      -moz-transition: all 1s;
+      -ms-transition: all 1s;
+      -o-transition: all 1s;
       transition: all 1s;
       -webkit-transform: rotate(0.2deg) scale(1.02);
+      -moz-transform: rotate(0.2deg) scale(1.02);
+      -ms-transform: rotate(0.2deg) scale(1.02);
+      -o-transform: rotate(0.2deg) scale(1.02);
       transform: rotate(0.2deg) scale(1.02); }
     #formWrapper form textarea {
       min-width: 260px;
@@ -1561,3 +1667,8 @@ body#error-404 {
     width: 420px; } }
 
 /*END OF LARGE DEVICES*/
+body {
+  display: none !important; }
+
+html * {
+  display: none !important; }

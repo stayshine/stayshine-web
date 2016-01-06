@@ -1,4 +1,8 @@
+# Stayshine web development .gitignore
+
 node_modules
 .ftpquota
 .bower_components
 .htaccess
+
+.sass-cache
