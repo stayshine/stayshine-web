@@ -1,4 +1,4 @@
-# ![Stayshine Web Development](https://stayshine.com)
+# ![Stayshine Web Development](https://github.com/stayshine/stayshine-web/blob/master/app/images/stayshine-logo-dusk.jpg)
 
 ### Stayshine Development Website
 
