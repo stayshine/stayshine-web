@@ -1,0 +1,14 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+  Michael Rosata -- <role> -- @onethingsimple
+
+# THANKS
+
+  Stayshine Team
+
+# TECHNOLOGY COLOPHON
+
+  HTML5, SCSS, JavaScript, Gulp, Google Web Starter Kit
