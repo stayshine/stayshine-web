@@ -435,14 +435,14 @@ img.stayshine-no-stretch {
   h4 {
     text-align: center;
     font-size: 1.1em;
-    line-height: 1.1em;
+    line-height: 1.2;
     margin: 0;
     padding: 0.7em 0.6em 0.2em;
+    background-color: rgba(255, 248, 175, .5);
 
     b.headline {
       text-decoration: none;
       color: #c1380d;
-      text-shadow: 1px 1px 2px rgba(68, 68, 68, 0.83);
 
       @media (max-width: 579px){
         text-decoration: underline;
@@ -464,8 +464,8 @@ img.stayshine-no-stretch {
 
       &.blog {
         display: inline-block;
-        background: #c19f4e;
-        padding: .2em .5em 0;
+        background: #FFECBF;
+        padding: .2em 3% 0;
         margin: 0;
       }
     }

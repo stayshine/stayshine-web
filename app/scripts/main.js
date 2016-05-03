@@ -16,7 +16,7 @@
  *  limitations under the License
  *
  /* eslint-env browser */
-(function() {
+/*(function() {
   'use strict';
 
   // Check to make sure service workers are supported in the current browser,
@@ -79,7 +79,7 @@
   }
 
   // Your custom JavaScript goes here
-})();
+})();*/
 
 $(document).ready(function(){
   $('a').smoothScroll();

@@ -1,0 +1,69 @@
+    <h3><b class="headline"><u>Fixing CSS in Internet Explorer 6/7/8</u></b></h3>
+    <h4 class="stayshine-byline">June, 20th 2014 By: Michael Rosata</h4>
+    <p>
+     So one of the biggest issues with developing on the web are the dreaded IE’s. Lol Microsoft makes life so fun sometimes! I’m going to show you a small little trick that we can use in conjunction with the Developer Tools in the new Internet Explorer 11 that will make your life a lot easier. You need to be able to run Internet Explorer to use this tutorial, if you don’t have Windows then you can still use this development code just not the IE dev tools, you will just have to use your regular IE testing environment. Now, open up one of your pages that is breaking in older browsers inside IE 11 and we can get started. Click this link to download the newest IE browser if you don’t have it.
+    </p>
+    <div class="stayshine-responsive-img">
+        <img src="../images/blog-images/IE-Style-001.png"
+             width="534"
+             height="280"
+             class="stayshine-center stayshine-no-stretch" />
+    </div>
+
+    <p>
+    Hit F-12 on your keyboard while in Internet Explorer which will open up the Microsoft Development Tools. You should see something similar to the image above. Microsoft actually did a good job on creating this console. Navigate to the ‘Emulation’ pane which is the last Icon all the way down on the left. You may have to scroll down to find it, it probably looks like a responsive icon because it has a monitor and smartphone. It sort of is for responsive design because you can emulate more than just browser versions in this tab, you can actually emulate Windows phones and different resolutions. If you have to fix some serious IE problems you will probably find yourself here a lot, I like to detach the whole console as to get it out of my way while I test my pages because if you just close it you will lose the emulation. You can detach the console clicking the little icon under the ‘X’ close button.
+    </p>
+
+    <p>
+    Under Mode and Document Mode: Use the drop down to pick which version of IE you think that your page is having problems in, click, wait 2 seconds and witness the breakdown of your amazingly beautiful and hard worked CSS. Just joking, but maybe not… Now open up your text editor with the .html file that we are going to be doing custom IE8 or IE7 or even IE6 styles to.
+    </p>
+
+    <p>
+    What we are going to do is super simple once it is done and I suggest doing this with any HTML project that you are going to work on. If you use HTML5 Boilerplate then you won’t even have to type this out as it already has similar IE and no-js classes defined, you’ll just have to check the top of your document to figure out the class names. Since we are not using Boilerplate at the moment, just the top of your .html file where you normally put the &lt;html&gt; tag, you are going to use IE conditional comments such as the ones in the image posted below.
+    </p>
+    <div class="stayshine-responsive-img">
+        <img src="../images/blog-images/IE-Style-002.png"
+             width="484"
+             height="125"
+             class="stayshine-center stayshine-no-stretch" />
+    </div>
+
+    <p>
+IE conditional comments work by building comment elements in our HTML that actually will not be commented out by the version of IE that we specify inside of straight brackets such as &lt;!--[ if lt IE 7 ]&gt; which is read as “if”, “less than”, “Internet Explorer”, “Version 7”. This comment block will not be ignored by any IE that isn’t at least version 7. Now we type our &lt;html class=”ie6”&gt; &lt;![endif]--&gt; which ends the condition comments. Since only Internet Explorers less than 7 render this html element we now have a &lt;html&gt; element and class that is only read within Internet Explorer 6 and lower. We can use this to make conditional CSS styles.
+    </p>
+
+    <p>
+You can come up with all sorts of conditions to point exactly at which Internet Explorer browser you are having trouble in. [if lt IE 9] is “if less that IE 9” so that hits 8. [if gte IE 9] is “if greater than or equal to IE 9 so that will render in IE’s 10 and up. You can keep the less than/greater than out and just say [if IE 6], there is even a negative condition, but you can research that more if you like. Here is a great resource on IE conditional commenting. Just remember they are comments so start them with &lt;!—[ ]&gt;  and end with &lt;!—[endif]—&gt;
+    </p>
+
+    <p>
+The last line to type goes after our conditional comments &lt;!—[if gt IE 8]&gt;&lt;!—><html> &lt;!—&lt;![endif]—&gt; don’t forget it, this will render the &lt;html&gt; tag for our non-Microsoft browsers. It looks complicated which is why I used the image above so you could see the color of which parts would be commented out in standard browsers. If you got this so far then the hard part is over. Let’s move on to our CSS Style sheet where we are going to tweak whichever element we are having trouble with.
+    </p>
+
+    <p>
+Let’s pretend in IE8 that we wanted to hide any div with class=”cool-effects”. All we have to do now that we have our conditional html classes is use html.ie8 cool-effects {  display: none; } This tells our style sheet that any elements with class “cool-effects” that are descendants of html element with class ie8 should not be displayed. We don’t have to change our body, we know the only way this selector will work is when the conditional comment for IE8 inserts &lt;html class=”ie8”&gt; and on all other browsers we just get a regular html element and proper styling.
+    </p>
+
+    <p>
+All elements will be descendants of html but only when we are using IE8 will the page render the html tag with the “ie8” class. Now we can specifically target any IE8 issues and not worry about our fixes breaking things in other browsers. Cool!
+    </p>
+
+    <p>
+Put the IE styles at the end of your style sheet so that the original styling is applied and then in IE they overwrite those styles when needed. Here is an image to easily show something similar to what your css will end up looking like on projects where you have to fix older Internet Explorer issues.
+    </p>
+    <div class="stayshine-responsive-img">
+        <img src="../images/blog-images/IE-Style-003.png"
+             width="273"
+             height="204"
+             class="stayshine-center stayshine-no-stretch" />
+    </div>
+
+    <p>
+Smile, be Codey!
+    </p>
+<br>
+<a href="#blog-nav" class="stayshine-top-button">Back up</a>
+
+<script>
+    $('a').smoothScroll();
+</script>
