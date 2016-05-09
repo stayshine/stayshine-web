@@ -16,7 +16,7 @@
  *  limitations under the License
  *
  /* eslint-env browser */
-/*(function() {
+(function() {
   'use strict';
 
   // Check to make sure service workers are supported in the current browser,
@@ -78,123 +78,123 @@
     });
   }
 
-  // Your custom JavaScript goes here
-})();*/
 
-$(document).ready(function(){
-  $('a').smoothScroll();
+  jQuery(document).ready(function($){
+    $('a').smoothScroll();
 
-  var slideshow = document.getElementById('stayshine-slideshow');
-  if (slideshow){
-    runSlideShow();
-  }
-  var $blog = $('#stayshine-blog-ui'),
-    $entries = $('#stayshine-blog-ui .stayshine-blog-spot');
-
-  $entries.each(function (i) {
-    if ($(this).attr('data-href')){
-      var linkhref = $(this).attr('data-href');
-      $(this).load(linkhref);
+    var slideshow = document.getElementById('stayshine-slideshow');
+    if (slideshow){
+      runSlideShow();
     }
+    var $blog = $('#stayshine-blog-ui'),
+      $entries = $('#stayshine-blog-ui .stayshine-blog-spot');
+
+    $entries.each(function (i) {
+      if ($(this).attr('data-href')){
+        var linkhref = $(this).attr('data-href');
+        $(this).load(linkhref);
+      }
+    });
+
   });
 
-});
+  function runSlideShow () {
+    var carousel = {
+      frames : {
+        0 : $('.frame0'),
+        1 : $('.frame1'),
+        2 : $('.frame2'),
+        3 : $('.frame3'),
+        4 : $('.frame4')
+      },
 
-function runSlideShow () {
-  var carousel = {
-    frames : {
-      0 : $('.frame0'),
-      1 : $('.frame1'),
-      2 : $('.frame2'),
-      3 : $('.frame3'),
-      4 : $('.frame4')
-    },
+      captionDisplayed : false,
 
-    captionDisplayed : false,
+      nextFrame : function () {
+        var shownFrame = this.frames[this.currentFrame],
+          nextFrameNum = parseInt((++this.currentFrame % 5),10),
+          nextFrame  = this.frames[nextFrameNum];
+        clearTimeout(this.timer);
+        shownFrame.fadeOut(300);
+        nextFrame.fadeIn(900);
+        this.currentFrame = nextFrameNum;
+        this.showPosition();
+        this.timer = setTimeout(function ()  {
+          carousel.nextFrame();
+        },4700);
+      },
 
-    nextFrame : function () {
-      var shownFrame = this.frames[this.currentFrame],
-        nextFrameNum = parseInt((++this.currentFrame % 5),10),
-        nextFrame  = this.frames[nextFrameNum];
-      clearTimeout(this.timer);
-      shownFrame.fadeOut(300);
-      nextFrame.fadeIn(900);
-      this.currentFrame = nextFrameNum;
-      this.showPosition();
-      this.timer = setTimeout(function ()  {
-        carousel.nextFrame();
-      },4700);
-    },
+      prevFrame : function (frameNum){
+        clearTimeout(this.timer);
+        var shownFrame = this.frames[this.currentFrame],
+          nextFrameNum = parseInt((--this.currentFrame % 5),10),
+          nextFrame  = nextFrameNum === -1 ? this.frames[4]: this.frames[nextFrameNum];
 
-    prevFrame : function (frameNum){
-      clearTimeout(this.timer);
-      var shownFrame = this.frames[this.currentFrame],
-        nextFrameNum = parseInt((--this.currentFrame % 5),10),
-        nextFrame  = nextFrameNum === -1 ? this.frames[4]: this.frames[nextFrameNum];
+        shownFrame.fadeOut(300);
+        nextFrame.fadeIn(900);
+        this.currentFrame = nextFrameNum === -1 ? 4 : nextFrameNum;
+        this.showPosition();
+        this.timer = setTimeout(function ()  {
+          carousel.prevFrame();
+        },4700);
+      },
 
-      shownFrame.fadeOut(300);
-      nextFrame.fadeIn(900);
-      this.currentFrame = nextFrameNum === -1 ? 4 : nextFrameNum;
-      this.showPosition();
-      this.timer = setTimeout(function ()  {
-        carousel.prevFrame();
-      },4700);
-    },
+      showPosition : function (color) {
+        var num = parseInt((this.currentFrame + 1),10);
+        color = color || '#AA6C39';
+        $('.carousel .frameMarker').css('background-color','#D49A6A');
+        $('.carousel .frameMarker:nth-of-type('+ num +')').css('background-color',color);
+      },
 
-    showPosition : function (color) {
-      var num = parseInt((this.currentFrame + 1),10);
-      color = color || '#AA6C39';
-      $('.carousel .frameMarker').css('background-color','#D49A6A');
-      $('.carousel .frameMarker:nth-of-type('+ num +')').css('background-color',color);
-    },
+      stopTheRide : function () {
+        clearTimeout(this.timer);
+        this.timer = setTimeout(function ()  {
+          carousel.nextFrame();
+        },47000);
+      },
 
-    stopTheRide : function () {
-      clearTimeout(this.timer);
-      this.timer = setTimeout(function ()  {
-        carousel.nextFrame();
-      },47000);
-    },
+      init : function () {
+        $('.carousel > div > figure').css('display','none');
+        this.frames[0].css('display','block');
+        this.currentFrame = 0;
+        this.showPosition();
 
-    init : function () {
-      $('.carousel > div > figure').css('display','none');
-      this.frames[0].css('display','block');
-      this.currentFrame = 0;
-      this.showPosition();
+        $('#nextFrameBtn').on('click',function () {
+          carousel.nextFrame();
+        });
 
-      $('#nextFrameBtn').on('click',function () {
-        carousel.nextFrame();
-      });
+        $('#prevFrameBtn').on('click',function () {
+          carousel.prevFrame();
+        });
 
-      $('#prevFrameBtn').on('click',function () {
-        carousel.prevFrame();
-      });
+        $('#pauseFrameBtn').on('click',function () {
+          carousel.stopTheRide();
+        });
 
-      $('#pauseFrameBtn').on('click',function () {
-        carousel.stopTheRide();
-      });
+        $('.carousel').on('mouseover',function () {
+          if (carousel.captionDisplayed === false){
+            $('.caption').fadeIn(400);
+            //carrolel.stopTheRide();
+            carousel.captionDisplayed = true;
+          }
+        });
 
-      $('.carousel').on('mouseover',function () {
-        if (carousel.captionDisplayed === false){
-          $('.caption').fadeIn(400);
-          //carrolel.stopTheRide();
-          carousel.captionDisplayed = true;
-        }
-      });
+        $('.carousel').on('mouseleave',function () {
+          if (carousel.captionDisplayed === true){
+            $('.caption').fadeOut(400).finish();
+            carousel.captionDisplayed = false;
+          }
+        });
 
-      $('.carousel').on('mouseleave',function () {
-        if (carousel.captionDisplayed === true){
-          $('.caption').fadeOut(400).finish();
-          carousel.captionDisplayed = false;
-        }
-      });
+        //set initial timeout
+        this.timer = setTimeout(function ()  {
+          carousel.nextFrame();
+        }, 4700);
 
-      //set initial timeout
-      this.timer = setTimeout(function ()  {
-        carousel.nextFrame();
-      }, 4700);
+      }
 
-    }
+    };
+    carousel.init();
+  }
+})();
 
-  };
-  carousel.init();
-}
