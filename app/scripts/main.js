@@ -18,6 +18,7 @@
  /* eslint-env browser */
 (function() {
   'use strict';
+/*
 
   // Check to make sure service workers are supported in the current browser,
   // and that the current page is accessed from a secure origin. Using a
@@ -77,6 +78,7 @@
       console.error('Error during service worker registration:', e);
     });
   }
+*/
 
 
   jQuery(document).ready(function($){

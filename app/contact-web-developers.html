@@ -18,7 +18,7 @@
 
   <!-- Add to homescreen for Chrome on Android -->
   <meta name="mobile-web-app-capable" content="yes">
-  <meta name="application-name" content="Web Starter Kit">
+  <meta name="application-name" content="Stayshine Web Development">
   <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
 
   <!-- Add to homescreen for Safari on iOS -->
@@ -34,12 +34,18 @@
   <!-- Color the status bar on mobile devices -->
   <meta name="theme-color" content="#2F3BA2">
 
+  <!-- Google Plus Mobile Code -->
+  <link href="https://plus.google.com/107324937612852755452" rel="publisher" />
 
+  <!-- The Google Plus API Script -->
+  <script type="text/javascript" async defer
+          src="https://apis.google.com/js/platform.js?publisherid=107324937612852755452">
+  </script>
   <script src="scripts/vendor/modernizr-2.6.2.min.js" async defer></script>
 
   <!-- Your styles -->
-  <link rel="stylesheet" href="styles/main.css">
-
+  <!-- inline ../tmp/styles/main.min.css -->
+  <link rel="stylesheet" href="styles/main.css" inline>
 </head>
 <body>
 <a name="top-of-web-design-page" id="stayshine-tricky-link"></a>
@@ -84,6 +90,7 @@
     <!-- the form -->
 
     <div id="formWrapper">
+      <h3>Currently Stayshine Web Development are not taking on new clients.</h3>
       <form name="stayshine_contact_form"
             id="stayshine_contact_form"
             class="stayshine-form-style"
@@ -91,22 +98,22 @@
             action="scripts/contact_form.php">
         <!-- First Name -->
         <label for="fname">First Name:</label><br>
-        <input type="text" name="fName" id="fName" placeholder="Jane"><br>
+        <input disabled  type="text" name="fName" id="fName" placeholder="Jane"><br>
 
 
         <!-- Last Name -->
         <label for="lName">Last Name:</label><br>
-        <input type="text" name="lName" id="lName" placeholder="Doe"><br>
+        <input disabled  type="text" name="lName" id="lName" placeholder="Doe"><br>
 
 
         <!-- Email -->
         <label for="email">Email:</label><br>
-        <input type="text" name="email" id="email" placeholder="someone@someplace.com"><br>
+        <input disabled  type="text" name="email" id="email" placeholder="someone@someplace.com"><br>
 
 
         <!-- Phone number -->
         <label for="phone">Phone:</label><br>
-        <input type="text" name="phone" id="phone" placeholder="555-555-1234"><br>
+        <input disabled  type="text" name="phone" id="phone" placeholder="555-555-1234"><br>
 
 
         <!-- What do you need -->
@@ -126,9 +133,9 @@
                               rows="7"
                               col="10"
                               maxlength="350"></textarea><br><br>
-
+<!--
         <input type="submit" value="Submit" id="submitBtn">
-        <input type="reset" value="Reset" id="clearBtn">
+        <input type="reset" value="Reset" id="clearBtn">-->
       </form>
     </div>
 

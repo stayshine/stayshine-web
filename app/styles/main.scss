@@ -66,6 +66,7 @@
   font-style: normal;
 }
 
+
 // My colors
 //
 $red: #e62534;
@@ -191,9 +192,6 @@ $grey: #262121;
 html {
   background-color: $white;
   background: url(../images/stayshine-main-background.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   background-size: cover;
   filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/stayshine-main-background.jpg', sizingMethod='scale');
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/stayshine-main-background.jpg', sizingMethod='scale')";
@@ -205,9 +203,6 @@ html {
 
 html.webdesign {
   background: url(../images/stayshine-services-background.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   background-size: cover;
   filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/stayshine-services-background.jpg', sizingMethod='scale');
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/stayshine-services-background.jpg', sizingMethod='scale')";
@@ -215,9 +210,6 @@ html.webdesign {
 
 html.blog {
   background: url(../images/stayshine-blog-background.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   background-size: cover;
   filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/stayshine-blog-background.jpg', sizingMethod='scale');
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/stayshine-blog-background.jpg', sizingMethod='scale')";
@@ -225,9 +217,6 @@ html.blog {
 
 html.contact {
   background: url(../images/stayshine-contact-background.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   background-size: cover;
   filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/stayshine-contact-background.jpg', sizingMethod='scale');
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/stayshine-contact-background.jpg', sizingMethod='scale')";
@@ -587,7 +576,7 @@ img.stayshine-no-stretch {
 
 .stayshine-image-shaped {
   border: 1px solid #777;
-  outline: 1 1 10px black;
+  outline: black 3px;
   border-radius: 2%;
   border-top-left-radius: 30%;
   border-bottom-right-radius: 30%;
@@ -761,8 +750,6 @@ img.stayshine-no-stretch {
   }
   .stayshine-footer #stayshine-social-icons span {
     width: 17%;
-    -webkit-transform: scale(1.075);
-    -moz-transform: scale(1.075);
     transform: scale(1.075);
   }
 
@@ -909,11 +896,9 @@ img.stayshine-no-stretch {
         display: block;
         margin-left: -40px;
         font-size: 1.3em;
-        display: block;
-        margin-left: -40px;
         text-align: center;
         padding: 0;
-        border-bottom: 1px solid saturate(white,20%);
+        border-bottom: 1px solid #F4F2E6;
         @include transition(all .2s ease-in-out);
         a {
           display: block;
@@ -996,7 +981,6 @@ img.stayshine-no-stretch {
       float:right;
       ul li {
         list-style: none;
-        font-size: .9;
         a {
           text-decoration: none;
           color: $offWhite;

@@ -30,6 +30,7 @@ import del from 'del';
 import runSequence from 'run-sequence';
 import browserSync from 'browser-sync';
 import swPrecache from 'sw-precache';
+import inlineSource from 'gulp-inline-source';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import {output as pagespeed} from 'psi';
 import pkg from './package.json';
@@ -37,9 +38,18 @@ import pkg from './package.json';
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
+gulp.task('inlinesource', () => {
+  return gulp.src('./tmp/*.html')
+    .pipe(inlineSource())
+    .pipe(gulp.dest('./tmp'));
+});
+
+
 // Lint JavaScript
 gulp.task('lint', () =>
-  gulp.src('app/scripts/**/*.js')
+  //gulp.src('app/scripts/**/*.js')
+  // Changed to not go into vendor scripts.
+  gulp.src('app/scripts/*.js')
     .pipe($.eslint())
     .pipe($.eslint.format())
     .pipe($.if(!browserSync.active, $.eslint.failOnError()))
@@ -68,6 +78,28 @@ gulp.task('copy', () =>
     .pipe($.size({title: 'copy'}))
 );
 
+gulp.task('copy-fonts', () =>
+  gulp.src([
+    'app/styles/fonts/*.eot',
+    'app/styles/fonts/*.svg',
+    'app/styles/fonts/*.ttf',
+    'app/styles/fonts/*.woff'
+  ], {
+    dot: true
+  }).pipe(gulp.dest('dist/styles/fonts'))
+    .pipe($.size({title: 'copy'}))
+);
+gulp.task('copy-scripts', () =>
+  gulp.src([
+    'app/scripts/',
+    'app/scripts/**/*.js'
+  ], {
+    dot: true
+  }).pipe(gulp.dest('dist/scripts'))
+    .pipe($.size({title: 'copy'}))
+);
+
+
 // Compile and automatically prefix stylesheets
 gulp.task('styles', () => {
   const AUTOPREFIXER_BROWSERS = [
@@ -84,9 +116,9 @@ gulp.task('styles', () => {
 
   // For best performance, don't add Sass partials to `gulp.src`
   return gulp.src([
-    'app/styles/**/*.scss',
-    'app/styles/**/*.css'
-  ])
+      'app/styles/**/*.scss',
+      'app/styles/**/*.css'
+    ])
     .pipe($.newer('.tmp/styles'))
     .pipe($.sourcemaps.init())
     .pipe($.sass({
@@ -105,26 +137,28 @@ gulp.task('styles', () => {
 // to enables ES2015 support remove the line `"only": "gulpfile.babel.js",` in the
 // `.babelrc` file.
 gulp.task('scripts', () =>
-    gulp.src([
+  gulp.src([
       // Note: Since we are not using useref in the scripts build pipeline,
       //       you need to explicitly list your scripts here in the right order
       //       to be correctly concatenated
+      //'./app/scripts/vendor/modernizr-2.6.2.min.js',
+      //'./app/scripts/vendor/jquery-1.11.0.min.js',
       './app/scripts/vendor/plugins.js',
       './app/scripts/vendor/jquery.smooth-scroll.min.js',
       './app/scripts/main.js'
       // Other scripts
     ])
-      .pipe($.newer('.tmp/scripts'))
-      .pipe($.sourcemaps.init())
-      .pipe($.babel())
-      .pipe($.sourcemaps.write())
-      .pipe(gulp.dest('.tmp/scripts'))
-      .pipe($.concat('main.min.js'))
-      .pipe($.uglify({preserveComments: 'some'}))
-      // Output files
-      .pipe($.size({title: 'scripts'}))
-      .pipe($.sourcemaps.write('.'))
-      .pipe(gulp.dest('dist/scripts'))
+    .pipe($.newer('.tmp/scripts'))
+    .pipe($.sourcemaps.init())
+    .pipe($.babel())
+    .pipe($.sourcemaps.write())
+    .pipe(gulp.dest('.tmp/scripts'))
+    .pipe($.concat('main.min.js'))
+    .pipe($.uglify({preserveComments: 'some'}))
+    // Output files
+    .pipe($.size({title: 'scripts'}))
+    .pipe($.sourcemaps.write('.'))
+    .pipe(gulp.dest('dist/scripts'))
 );
 
 // Scan your HTML for assets & optimize them
@@ -143,6 +177,7 @@ gulp.task('html', () => {
     // Concatenate and minify styles
     // In case you are still using useref build blocks
     .pipe($.if('*.css', $.cssnano()))
+    .pipe(inlineSource())
 
     // Minify any HTML
     .pipe($.if('*.html', $.htmlmin({
@@ -206,8 +241,10 @@ gulp.task('serve:dist', ['default'], () =>
 gulp.task('default', ['clean'], cb =>
   runSequence(
     'styles',
-    ['lint', 'html', 'scripts', 'images', 'copy'],
-    'generate-service-worker',
+    //['lint', 'html', 'scripts', 'images', 'copy'],
+    // Added inline css in the head.
+    ['lint', 'html', 'scripts', 'images', 'copy', 'copy-fonts', 'copy-scripts'],
+    //'generate-service-worker',
     cb
   )
 );
@@ -215,7 +252,7 @@ gulp.task('default', ['clean'], cb =>
 // Run PageSpeed Insights
 gulp.task('pagespeed', cb =>
   // Update the below URL to the public URL of your site
-  pagespeed('example.com', {
+  pagespeed('stayshine.com', {
     strategy: 'mobile'
     // By default we use the PageSpeed Insights free (no API key) tier.
     // Use a Google Developer API key if you have one: http://goo.gl/RkN0vE
