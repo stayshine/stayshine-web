@@ -82,7 +82,8 @@
 
 
   jQuery(document).ready(function($){
-    $('a').smoothScroll();
+    if (typeof $.fn.smoothScroll !== "undefined")
+      $('a').smoothScroll();
 
     var slideshow = document.getElementById('stayshine-slideshow');
     if (slideshow){
@@ -99,6 +100,7 @@
     });
 
   });
+
 
   function runSlideShow () {
     var carousel = {
@@ -155,48 +157,77 @@
         },47000);
       },
 
+      captionsOn: function () {
+        if (carousel.captionDisplayed === false){
+          $('.caption').fadeIn(400);
+          carousel.captionDisplayed = true;
+        }
+      },
+
+      captionsOff: function () {
+        if (carousel.captionDisplayed === true){
+          carousel.captionDisplayed = false;
+          window.setTimeout(function () {
+            // This is so the captions don't turn off for a quick
+            // mouseleave or for a blur off one button onto a focus
+            // on another button.
+            if (carousel.captionDisplayed === false) {
+              $('.caption').fadeOut(400).finish();
+            }
+          }, 50);
+        }
+      },
+
       init : function () {
         $('.carousel > div > figure').css('display','none');
         this.frames[0].css('display','block');
         this.currentFrame = 0;
         this.showPosition();
 
-        $('#nextFrameBtn').on('click',function () {
+        $('#nextFrameBtn').on('click',function (evt) {
           carousel.nextFrame();
-        });
+        }).on('keyup', accessibilityClickWithEnter);
 
-        $('#prevFrameBtn').on('click',function () {
+
+        $('#prevFrameBtn').on('click',function (evt) {
           carousel.prevFrame();
-        });
+        }).on('keyup', accessibilityClickWithEnter);
 
-        $('#pauseFrameBtn').on('click',function () {
-          carousel.stopTheRide();
-        });
-
-        $('.carousel').on('mouseover',function () {
-          if (carousel.captionDisplayed === false){
-            $('.caption').fadeIn(400);
-            //carrolel.stopTheRide();
-            carousel.captionDisplayed = true;
-          }
-        });
-
-        $('.carousel').on('mouseleave',function () {
-          if (carousel.captionDisplayed === true){
-            $('.caption').fadeOut(400).finish();
-            carousel.captionDisplayed = false;
-          }
-        });
+        $('#pauseFrameBtn')
+          .on('click',function () {
+            carousel.stopTheRide();
+          })
+          .on('keyup', accessibilityClickWithEnter);
 
         //set initial timeout
         this.timer = setTimeout(function ()  {
           carousel.nextFrame();
         }, 4700);
 
+        $('.carousel').on('mouseover', carousel.captionsOn)
+          .on('mouseleave',carousel.captionsOff)
+          .on('blur',carousel.captionsOff);
+        $('.carousel #buttonBox > div')
+          .on('focus',carousel.captionsOn)
+          .on('blur',carousel.captionsOff)
+
       }
 
     };
     carousel.init();
+  }
+
+  function accessibilityClickWithEnter(evt) {
+    /**
+     * Make sure that the buttons in the slideshow work for keyboard users
+     * the same way which they work for mouse users.
+     */
+    if (evt.keyCode && evt.keyCode === 13) {
+      console.log(evt);
+      $(evt.target).trigger('click');
+    }
+    console.log('asdfsdaf', evt);
+    return evt;
   }
 })();
 

@@ -237,7 +237,8 @@ a:link {
 a:visited{
   color: $brown;
 }
-a:hover{
+a:hover,
+a:focus {
   color: $red;
 }
 a:active{
@@ -294,7 +295,8 @@ img.stayshine-no-stretch {
       a:visited {
         color: $offWhite;
       }
-      a:hover {
+      a:hover,
+      a:focus {
         color: #c76a77;
         color: $redop2;
       }
@@ -325,7 +327,8 @@ img.stayshine-no-stretch {
       a:visited{
         color: $brown;
       }
-      a:hover{
+      a:hover,
+      a:focus{
         color: lighten($red, 5%);
       }
       a:active{
@@ -502,7 +505,8 @@ img.stayshine-no-stretch {
     &.stayshine-grow {
       @include transition(all .4s ease-out);
 
-      &:hover {
+      &:hover,
+      &:focus {
         @include transform(scale(1.01));
       }
     }
@@ -530,7 +534,8 @@ img.stayshine-no-stretch {
         color: darken(#4242cb,16%);
         @include transition(0.42s all);
       }
-      &:hover{
+      &:hover,
+      &:focus{
         @include transition(0.42s all);
         @include transform(scale(1.01));
         color: darken($red, 28%);
@@ -590,7 +595,8 @@ img.stayshine-no-stretch {
       129px -108px 20px -98px rgba(58, 0, 255, 0.16),
       8px 8px 1px 1px #222,
       -12px 14px 2px 0px rgba(83, 53, 53, 0.56));
-    &:hover {
+    &:hover,
+    &:focus {
       @include transition(1.8s all);
       @include hexaShadow(222px -149px 12px -108px rgba(34, 34, 34, 0.26),
         -123px 122px 5px -100px rgba(211, 78, 78, 0.67),
@@ -627,7 +633,8 @@ img.stayshine-no-stretch {
   overflow: hidden;
   z-index: 1000;
 
-  &:hover {
+  &:hover,
+  &:focus {
     //color: darken(#fff,6%);
     //color: darken(rgba(255, 255, 255,.8),6%);
     color: #8b1a1a;
@@ -686,28 +693,32 @@ img.stayshine-no-stretch {
   #stayshine-twitter{
     background-image: url(../images/twitter-icon-sm.png);
   }
-  #stayshine-twitter:hover{
+  #stayshine-twitter:hover,
+  #stayshine-twitter:focus{
     background-position: 48px 0;
   }
 
   #stayshine-google {
     background-image: url(../images/google-icon-sm.png);
   }
-  #stayshine-google:hover{
+  #stayshine-google:hover,
+  #stayshine-google:focus{
     background-position: 48px 0;
   }
 
   #stayshine-facebook {
     background-image: url(../images/facebook-icon-sm.png);
   }
-  #stayshine-facebook:hover{
+  #stayshine-facebook:hover,
+  #stayshine-facebook:focus{
     background-position: 48px 0;
   }
 
   #stayshine-linkedin {
     background-image: url(../images/linkedin-icon-sm.png);
   }
-  #stayshine-linkedin:hover{
+  #stayshine-linkedin:hover,
+  #stayshine-linkedin:focus{
     background-position: 48px 0;
   }
 
@@ -908,6 +919,7 @@ img.stayshine-no-stretch {
           @include transition(all .2s ease-in-out);
 
 
+          &:focus,
           &:hover {
             &.index {
               text-shadow: -60px 0px 0px #333,
@@ -988,7 +1000,8 @@ img.stayshine-no-stretch {
         a:visited {
           color: $offWhite;
         }
-        a:hover {
+        a:hover,
+        a:focus {
           color: $white;
         }
         a:active {
@@ -1080,32 +1093,40 @@ img.stayshine-no-stretch {
       display: inline-block;
       cursor: pointer;
       margin-left: 28px;
+      &:hover, &:focus {
+        background-position: 96px 0;
+      }
     }
+    //TODO: I noticed that these rules are repetitive (the hover). Consolidate them (and test changes).
     #stayshine-twitter{
       background-image: url(../images/twitter-icon.png);
     }
-    #stayshine-twitter:hover{
+    #stayshine-twitter:hover,
+    #stayshine-twitter:focus{
       background-position: 96px 0;
-    }
+  }
 
     #stayshine-google {
       background-image: url(../images/google-icon.png);
     }
-    #stayshine-google:hover{
+    #stayshine-google:hover,
+    #stayshine-google:focus{
       background-position: 96px 0;
     }
 
     #stayshine-facebook {
       background-image: url(../images/facebook-icon.png);
     }
-    #stayshine-facebook:hover{
+    #stayshine-facebook:hover,
+    #stayshine-facebook:focus{
       background-position: 96px 0;
     }
 
     #stayshine-linkedin {
       background-image: url(../images/linkedin-icon.png);
     }
-    #stayshine-linkedin:hover{
+    #stayshine-linkedin:hover,
+    #stayshine-linkedin:focus{
       background-position: 96px 0;
     }
   }

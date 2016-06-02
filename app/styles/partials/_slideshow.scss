@@ -40,7 +40,8 @@
         -webkit-transition: all 0.3s;
         transition: all 0.3s;
 
-        &:hover {
+        &:hover,
+        &:focus {
           -webkit-transition: all 0.3s;
           transition: all 0.3s;
         }
@@ -56,7 +57,8 @@
         transition: all 0.3s;
 
 
-        &:hover {
+        &:hover,
+        &:focus{
           background-color: #d46a6a;
           @include transform(rotate(0) scale(1.06) translate(0px));
           -webkit-transition: all 0.3s;
@@ -93,7 +95,8 @@
           }
         }
 
-        &:hover {
+        &:hover,
+        &:focus {
           border-color: darken(#332e2e,8%);
           @include transform(rotate(0) scale(1.06) translate(0px));
           .carr-arrow {
@@ -123,7 +126,8 @@
           }
         }
 
-        &:hover {
+        &:hover,
+        &:focus {
           .carr-bar {
             background-color: darken(#332e2e,8%);
             @include transform(rotate(0deg) scale(1.06) translate(0px));
@@ -149,7 +153,8 @@
             left: 0.8em;
           }
         }
-        &:hover {
+        &:hover,
+        &:focus {
           border-color: darken(#332e2e,8%);
           @include transform(rotate(0deg) scale(1.06) translateX(0px));
           .carr-arrow {

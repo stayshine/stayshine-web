@@ -50,7 +50,7 @@
   </head>
 
   <body class="index">
-  <a name="top-of-web-design-page" id="stayshine-tricky-link"></a>
+  <a name="top-of-web-design-page" class="top-of-page" id="stayshine-tricky-link"></a>
 
   <!--[if lt IE 7]>
   <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -163,15 +163,15 @@
           <div class="frameMarker"></div>
           <div class="frameMarker"></div>
           <div id="buttonBox">
-            <div id="prevFrameBtn">
+            <div id="prevFrameBtn" tabindex="0" aria-label="previous slide" aria-role="button">
               <div class="carr-arrow"></div>
               <div class="carr-arrow right-arrow"></div>
             </div>
-            <div id="pauseFrameBtn">
+            <div id="pauseFrameBtn" tabindex="0" aria-label="pause slides" aria-role="button">
               <div class="carr-bar"></div>
               <div class="carr-bar right-bar"></div>
             </div>
-            <div id="nextFrameBtn">
+            <div id="nextFrameBtn" tabindex="0" aria-label="next slide" aria-role="button">
               <div class="carr-arrow"></div>
               <div class="carr-arrow right-arrow"></div>
             </div>
@@ -386,6 +386,8 @@
   <script>window.jQuery || document.write('<script src="scripts/vendor/jquery-1.11.0.min.js"><\/script>')</script>
 
   <!-- build:js(app/) ../../scripts/main.min.js -->
+  <script src="scripts/plugins.js" async defer></script>
+  <script src="scripts/vendor/jquery.smooth-scroll.min.js" defer></script>
   <script src="scripts/main.js" defer></script>
   <!-- endbuild -->
 
